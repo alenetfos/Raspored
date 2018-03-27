@@ -5,20 +5,14 @@
  */
 package raspored.view;
 
+import raspored.pomocno.SmjerRenderer;
 import java.awt.Color;
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
-import org.hibernate.Session;
 import raspored.controller.Obrada;
 import raspored.model.Smjer;
 import raspored.pomocno.HibernateUtil;
@@ -192,8 +186,6 @@ public class Smjerovi extends javax.swing.JFrame {
     private void listaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaValueChanged
 
         evt.getValueIsAdjusting();
-    
-        
     }//GEN-LAST:event_listaValueChanged
 
     private void btnPromjeniSmjerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromjeniSmjerActionPerformed

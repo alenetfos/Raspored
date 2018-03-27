@@ -5,17 +5,38 @@
  */
 package raspored.view;
 
+import java.awt.Color;
+import java.util.List;
+import javax.swing.BorderFactory;
+import javax.swing.DefaultListModel;
+import javax.swing.JTextField;
+import javax.swing.border.Border;
+import raspored.controller.Obrada;
+import raspored.model.Godina;
+import raspored.model.Smjer;
+import raspored.pomocno.GodinaRenderer;
+import raspored.pomocno.HibernateUtil;
+
 /**
  *
  * @author FeritApostol
  */
 public class Godine extends javax.swing.JFrame {
+    
+    private Obrada<Godina> obrada;
+     
+    private Border obrub;
 
-    /**
-     * Creates new form Godina
-     */
+    
     public Godine() {
+        
         initComponents();
+        
+        obrada = new Obrada<>();
+        
+        lista.setCellRenderer(new GodinaRenderer());
+        
+        ucitajPodatke();
     }
 
     /**
@@ -30,15 +51,45 @@ public class Godine extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         lista = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
-        jcbGodine = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        txtGodina = new javax.swing.JTextField();
+        btnDodajGodinu = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        lista.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                listaValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(lista);
 
         jLabel1.setText("GODINA");
 
-        jcbGodine.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Odaberi Godinu" }));
+        jLabel2.setText("Unesi Godinu");
+
+        btnDodajGodinu.setText("Dodaj");
+        btnDodajGodinu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDodajGodinuActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Promjeni");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Obriši");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -50,30 +101,109 @@ public class Godine extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addComponent(jcbGodine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(105, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtGodina, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(btnDodajGodinu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jcbGodine, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(92, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtGodina, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDodajGodinu, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
- 
+    private void btnDodajGodinuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajGodinuActionPerformed
+
+        resetirajGreske();
+        if (!kontrola()) {
+            return;
+        }
+        
+        Godina g = new Godina();
+        g = napuniObjekt(g);
+        obrada.save(g);
+        ucitajPodatke();
+    }//GEN-LAST:event_btnDodajGodinuActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void listaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaValueChanged
+        evt.getValueIsAdjusting();
+    }//GEN-LAST:event_listaValueChanged
+
+    private Godina napuniObjekt(Godina g) {
+        g.setBroj_godine(txtGodina.getText());
+        return g;
+    }
+    
+    private void ucitajPodatke() {
+        
+        DefaultListModel<Godina> model = new DefaultListModel<>();
+
+        List<Godina> lista = HibernateUtil.getSession().createQuery(
+                "from Godina").list();
+
+        for (Godina g : lista) {
+            model.addElement(g);
+        }
+        this.lista.setModel(model);
+
+    }
+    
+    private void oznaciGresku(JTextField polje) {
+        polje.setBorder(BorderFactory.createLineBorder(Color.decode("#FF0000")));
+        polje.requestFocus();
+    }
+    
+     private void resetirajGreske() {
+         txtGodina.setBorder(obrub);    
+    }
+     
+      private boolean kontrola() {
+        if (txtGodina.getText().trim().length() == 0) {
+            oznaciGresku(txtGodina);
+            return false;
+        }
+        return true;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDodajGodinu;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JComboBox<String> jcbGodine;
-    private javax.swing.JList<Godine> lista;
+    private javax.swing.JList<Godina> lista;
+    private javax.swing.JTextField txtGodina;
     // End of variables declaration//GEN-END:variables
 }
+

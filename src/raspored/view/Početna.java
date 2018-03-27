@@ -5,8 +5,6 @@
  */
 package raspored.view;
 
-import javax.swing.JFrame;
-
 /**
  *
  * @author FeritApostol
@@ -17,6 +15,7 @@ public class Početna extends javax.swing.JFrame {
      * Creates new form Početna
      */
     public Početna() {
+        
         initComponents();
     }
 
@@ -91,3 +90,4 @@ public class Početna extends javax.swing.JFrame {
     private javax.swing.JButton btnSmjerovi;
     // End of variables declaration//GEN-END:variables
 }
+

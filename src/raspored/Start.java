@@ -5,12 +5,8 @@
  */
 package raspored;
 
-import raspored.controller.Obrada;
-import raspored.model.Smjer;
 import raspored.pomocno.HibernateUtil;
-import raspored.view.Godine;
 import raspored.view.Početna;
-import raspored.view.Smjerovi;
 
 
 public class Start {
@@ -22,6 +18,9 @@ public class Start {
         
         HibernateUtil.getSession();
         new Početna().setVisible(true);
+        
+        
+
 
     }
     

@@ -27,7 +27,7 @@ public class Godina implements Serializable {
     
     @ManyToOne
     private Smjer smjer;
-    private int broj_godine;
+    private String broj_godine;
 
     public int getId_godina() {
         return id_godina;
@@ -45,11 +45,13 @@ public class Godina implements Serializable {
         this.smjer = smjer;
     }
 
-    public int getBroj_godine() {
+    public String getBroj_godine() {
         return broj_godine;
     }
 
-    public void setBroj_godine(int broj_godine) {
+    public void setBroj_godine(String broj_godine) {
         this.broj_godine = broj_godine;
     }
+
+    
 }

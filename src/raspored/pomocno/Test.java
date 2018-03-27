@@ -26,7 +26,7 @@ public class Test {
         s = os.save(s);
         
         Godina g = new Godina();
-        g.setBroj_godine(1);
+        g.setBroj_godine("1.godina");
         
         Obrada<Godina> os1 = new Obrada<>();
         

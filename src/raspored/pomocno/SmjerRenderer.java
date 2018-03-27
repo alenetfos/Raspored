@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package raspored.view;
+package raspored.pomocno;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -14,6 +14,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
+import raspored.model.Godina;
 import raspored.model.Smjer;
 
 /**
@@ -35,9 +36,7 @@ public class SmjerRenderer extends JLabel implements ListCellRenderer<Smjer> {
             setBackground(Color.GREEN);
         }else{
             setBackground(list.getBackground());
-        }
-        
-         
+        }    
         return this;
     }
     
