@@ -16,7 +16,6 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 import raspored.controller.Obrada;
 import raspored.model.Godina;
-import raspored.model.Smjer;
 import raspored.pomocno.HibernateUtil;
 
 /**

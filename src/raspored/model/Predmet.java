@@ -7,9 +7,15 @@ package raspored.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -28,6 +34,17 @@ public class Predmet implements Serializable {
     private Godina godina;
     private String naziv;
     private BigDecimal broj_sati;
+    
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+        name = "predaje", 
+        joinColumns = { @JoinColumn(name = "id_predmet") }, 
+        inverseJoinColumns = { @JoinColumn(name = "id_profesor") }
+    )
+    Set<Profesor> profesori = new HashSet<>();
+    
+    
+    
 
     public int getId_predmet() {
         return id_predmet;

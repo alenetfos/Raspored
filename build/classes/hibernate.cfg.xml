@@ -6,8 +6,8 @@
  <session-factory>  
     <!-- 
     Kreirati bazu 
-        create database edunovaj17 character set utf8 collate utf8_general_ci;
-
+        create database raspored character set utf8 collate utf8_general_ci;
+        drop database raspored;
      --> 
     <property name="connection.url">jdbc:mysql://localhost:3306/raspored</property>
     <property name="connection.username">edunova</property>
@@ -27,7 +27,7 @@
     create-drop: drop the schema at the end of the session. 
     1. puta create, poslije update
     -->
-    <property name="hbm2ddl.auto">update</property>
+    <property name="hbm2ddl.auto">create</property>
   
     <!-- JDBC connection pool (use the built-in) -->
     <property name="connection.pool_size">1</property>
@@ -37,6 +37,8 @@
     <mapping class="raspored.model.Smjer" /> 
     <mapping class="raspored.model.Godina" /> 
     <mapping class="raspored.model.Predmet" /> 
+    <mapping class="raspored.model.Profesor" /> 
+    
     
     
 </session-factory>

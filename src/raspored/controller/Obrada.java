@@ -9,7 +9,7 @@ import raspored.pomocno.HibernateUtil;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import raspored.model.Predmet;
+
 
 /**
  *
