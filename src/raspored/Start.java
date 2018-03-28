@@ -19,9 +19,6 @@ public class Start {
         HibernateUtil.getSession();
         new Početna().setVisible(true);
         
-        
-
-
     }
     
 }

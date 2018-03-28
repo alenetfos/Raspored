@@ -10,23 +10,24 @@ import java.awt.Component;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
+import raspored.model.Predmet;
 import raspored.model.Smjer;
 
 /**
  *
- * @author Profesor
+ * @author FeritApostol
  */
-public class SmjerRenderer extends JLabel implements ListCellRenderer<Smjer> {
+public class PredmetRenderer extends JLabel implements ListCellRenderer<Predmet> {
  
     @Override
-    public Component getListCellRendererComponent(JList<? extends Smjer> list, Smjer smjer, int index,
+    public Component getListCellRendererComponent(JList<? extends Predmet> list, Predmet predmet, int index,
         boolean isSelected, boolean cellHasFocus) {
         
        
-        String s = smjer.getNaziv() + "                                                                 ";
+        String p = predmet.getNaziv() + "                                                                 ";
         setOpaque(true);
        
-        setText(s.substring(0,25) + "|        " +  smjer.getOpis().toString() );
+        setText(p.substring(0,25) + "|        " +  predmet.getBroj_sati().toString() );
         if(isSelected){
             setBackground(Color.GREEN);
         }else{

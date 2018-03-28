@@ -52,6 +52,11 @@ public class Godina implements Serializable {
     public void setBroj_godine(String broj_godine) {
         this.broj_godine = broj_godine;
     }
+    
+    @Override
+    public String toString() {
+       return getBroj_godine();
+    }
 
     
 }

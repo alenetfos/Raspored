@@ -36,6 +36,7 @@
     <!-- moraju se slijedno navesti klase koje su mapirane -->
     <mapping class="raspored.model.Smjer" /> 
     <mapping class="raspored.model.Godina" /> 
+    <mapping class="raspored.model.Predmet" /> 
     
     
 </session-factory>
