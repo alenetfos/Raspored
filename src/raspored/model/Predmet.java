@@ -42,6 +42,14 @@ public class Predmet implements Serializable {
         inverseJoinColumns = { @JoinColumn(name = "id_profesor") }
     )
     Set<Profesor> profesori = new HashSet<>();
+
+    public Set<Profesor> getProfesori() {
+        return profesori;
+    }
+
+    public void setProfesori(Set<Profesor> profesori) {
+        this.profesori = profesori;
+    }
     
     
     

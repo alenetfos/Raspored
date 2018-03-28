@@ -17,7 +17,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import raspored.controller.Obrada;
-import raspored.model.Godina;
 import raspored.model.Predmet;
 import raspored.pomocno.HibernateUtil;
 import raspored.pomocno.PredmetRenderer;
@@ -233,7 +232,7 @@ public class Predmeti extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
 
-          Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
         // Determine the new location of the window
         int w = this.getSize().width;

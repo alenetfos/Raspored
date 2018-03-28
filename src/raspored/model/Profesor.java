@@ -32,6 +32,15 @@ public class Profesor implements Serializable {
     
     @ManyToMany(mappedBy = "profesori")
     private Set<Predmet> predmeti = new HashSet<>();    
+
+    public Set<Predmet> getPredmeti() {
+        return predmeti;
+    }
+
+    public void setPredmeti(Set<Predmet> predmeti) {
+        this.predmeti = predmeti;
+    }
+    
     
     
 
@@ -67,5 +76,9 @@ public class Profesor implements Serializable {
         this.prezime = prezime;
     }
 
+    @Override
+    public String toString() {
+       return getIme();
+    }
   
 }
