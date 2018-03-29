@@ -6,8 +6,8 @@
 package raspored.model;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -25,28 +25,28 @@ public class Profesor implements Serializable {
     
     @Id
     @GeneratedValue
-    private int id_profesor;
-    private int oib;
+    private int idProfesor;
     private String ime;
+    private int oib;
     private String prezime;
     
     @ManyToMany(mappedBy = "profesori")
-    private Set<Predmet> predmeti = new HashSet<>();    
-
-    public Set<Predmet> getPredmeti() {
+    private List<Predmet> predmeti=new ArrayList<>(); 
+    
+    public List<Predmet> getPredmeti() {
         return predmeti;
     }
 
-    public void setPredmeti(Set<Predmet> predmeti) {
+    public void setPredmeti(List<Predmet> predmeti) {
         this.predmeti = predmeti;
     }
 
-    public int getId_profesor() {
-        return id_profesor;
+    public int getIdProfesor() {
+        return idProfesor;
     }
 
-    public void setId_profesor(int id_profesor) {
-        this.id_profesor = id_profesor;
+    public void setIdProfesor(int idProfesor) {
+        this.idProfesor = idProfesor;
     }
 
     public int getOib() {
