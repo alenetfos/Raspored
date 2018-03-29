@@ -6,7 +6,7 @@
 package raspored;
 
 import raspored.pomocno.HibernateUtil;
-import raspored.view.Početna;
+import raspored.view.Izbornik;
 
 
 public class Start {
@@ -17,7 +17,7 @@ public class Start {
     public static void main(String[] args) {
         
         HibernateUtil.getSession();
-        new Početna().setVisible(true);
+        new Izbornik().setVisible(true);
         
     }
     
