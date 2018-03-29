@@ -245,7 +245,7 @@ public class Predmeti extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private Predmet napuniObjekt(Predmet p) {
-        p.setBroj_sati(new BigDecimal(parse(txtBrojSati.getText()).toString()));
+        p.setBrojSati(new BigDecimal(parse(txtBrojSati.getText()).toString()));
         
         p.setNaziv(txtNazivPredmeta.getText());
         return p;

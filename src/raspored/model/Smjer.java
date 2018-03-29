@@ -23,7 +23,7 @@ public class Smjer implements Serializable {
     
     @Id
     @GeneratedValue
-    private int id_smjer;
+    private int idSmjer;
     
     @Column(name="naziv")
     @Type(type="text")
@@ -33,12 +33,12 @@ public class Smjer implements Serializable {
     @Type(type="text")
     private String opis;
 
-    public int getId_smjer() {
-        return id_smjer;
+    public int getIdSmjer() {
+        return idSmjer;
     }
 
-    public void setId_smjer(int id_smjer) {
-        this.id_smjer = id_smjer;
+    public void setIdSmjer(int idSmjer) {
+        this.idSmjer = idSmjer;
     }
 
     public String getNaziv() {

@@ -222,7 +222,7 @@ public class Godine extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private Godina napuniObjekt(Godina g) {
-        g.setBroj_godine(txtGodina.getText());
+        g.setBrojGodine(txtGodina.getText());
         return g;
     }
     

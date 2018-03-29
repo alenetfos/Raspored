@@ -11,7 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 import raspored.model.Predmet;
-import raspored.model.Smjer;
 
 /**
  *
@@ -27,7 +26,7 @@ public class PredmetRenderer extends JLabel implements ListCellRenderer<Predmet>
         String p = predmet.getNaziv() + "                                                                 ";
         setOpaque(true);
        
-        setText(p.substring(0,25) + "|        " +  predmet.getBroj_sati().toString() );
+        setText(p.substring(0,25) + "|        " +  predmet.getBrojSati().toString() );
         if(isSelected){
             setBackground(Color.GREEN);
         }else{

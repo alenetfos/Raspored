@@ -7,8 +7,8 @@ package raspored.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -22,24 +22,32 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class Student implements Serializable {
+    
     @Id
     @GeneratedValue
-    private int id_student;
-    
+    private int idStudent;
     private String index;
     private String ime;
     private String prezime;
-    private BigDecimal broj_dolaznosti;
+    private BigDecimal brojDolaznosti;
     
     @ManyToMany(mappedBy = "studenti")
-    private Set<Predmet> predmeti = new HashSet<>(); 
+    private List<Predmet> predmeti=new ArrayList<>(); 
 
-    public int getId_student() {
-        return id_student;
+    public int getIdStudent() {
+        return idStudent;
     }
 
-    public void setId_student(int id_student) {
-        this.id_student = id_student;
+    public void setIdStudent(int idStudent) {
+        this.idStudent = idStudent;
+    }
+
+    public BigDecimal getBrojDolaznosti() {
+        return brojDolaznosti;
+    }
+
+    public void setBrojDolaznosti(BigDecimal brojDolaznosti) {
+        this.brojDolaznosti = brojDolaznosti;
     }
 
     public String getIndex() {
@@ -66,20 +74,12 @@ public class Student implements Serializable {
         this.prezime = prezime;
     }
 
-    public Set<Predmet> getPredmeti() {
+    public List<Predmet> getPredmeti() {
         return predmeti;
     }
 
-    public void setPredmeti(Set<Predmet> predmeti) {
+    public void setPredmeti(List<Predmet> predmeti) {
         this.predmeti = predmeti;
-    }
-
-    public BigDecimal getBroj_dolaznosti() {
-        return broj_dolaznosti;
-    }
-
-    public void setBroj_dolaznosti(BigDecimal broj_dolaznosti) {
-        this.broj_dolaznosti = broj_dolaznosti;
     }
 
     @Override

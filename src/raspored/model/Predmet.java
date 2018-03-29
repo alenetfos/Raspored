@@ -7,8 +7,8 @@ package raspored.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,12 +28,12 @@ import javax.persistence.Table;
 public class Predmet implements Serializable {
     @Id
     @GeneratedValue
-    private int id_predmet;
+    private int idPredmet;
     
     @ManyToOne
     private Godina godina;
     private String naziv;
-    private BigDecimal broj_sati;
+    private BigDecimal brojSati;
     
     @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
@@ -41,42 +41,24 @@ public class Predmet implements Serializable {
         joinColumns = { @JoinColumn(name = "id_predmet") }, 
         inverseJoinColumns = { @JoinColumn(name = "id_profesor") }
     )
-    Set<Profesor> profesori = new HashSet<>();
+    private List<Profesor> profesori=new ArrayList<>();
     
-    @ManyToMany(cascade = { CascadeType.ALL }) 
+    @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
         name = "dolaznost", 
         joinColumns = { @JoinColumn(name = "id_predmet") }, 
         inverseJoinColumns = { @JoinColumn(name = "id_student") }
     )
-    Set<Student> studenti = new HashSet<>();
+    private List<Student> studenti=new ArrayList<>();
+
+    public int getIdPredmet() {
+        return idPredmet;
+    }
+
+    public void setIdPredmet(int idPredmet) {
+        this.idPredmet = idPredmet;
+    }
     
-    
-
-    public Set<Profesor> getProfesori() {
-        return profesori;
-    }
-
-    public void setProfesori(Set<Profesor> profesori) {
-        this.profesori = profesori;
-    }
-
-    public Set<Student> getStudenti() {
-        return studenti;
-    }
-
-    public void setStudenti(Set<Student> studenti) {
-        this.studenti = studenti;
-    }
-
-    public int getId_predmet() {
-        return id_predmet;
-    }
-
-    public void setId_predmet(int id_predmet) {
-        this.id_predmet = id_predmet;
-    }
-
     public Godina getGodina() {
         return godina;
     }
@@ -93,12 +75,28 @@ public class Predmet implements Serializable {
         this.naziv = naziv;
     }
 
-    public BigDecimal getBroj_sati() {
-        return broj_sati;
+    public BigDecimal getBrojSati() {
+        return brojSati;
     }
 
-    public void setBroj_sati(BigDecimal broj_sati) {
-        this.broj_sati = broj_sati;
+    public void setBrojSati(BigDecimal brojSati) {
+        this.brojSati = brojSati;
+    }
+
+    public List<Profesor> getProfesori() {
+        return profesori;
+    }
+
+    public void setProfesori(List<Profesor> profesori) {
+        this.profesori = profesori;
+    }
+
+    public List<Student> getStudenti() {
+        return studenti;
+    }
+
+    public void setStudenti(List<Student> studenti) {
+        this.studenti = studenti;
     }
     
     @Override
