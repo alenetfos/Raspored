@@ -35,6 +35,7 @@ public class Početna extends javax.swing.JFrame {
         btnGodine = new javax.swing.JButton();
         btnPredmeti = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnProfesori = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(436, 345));
@@ -44,6 +45,7 @@ public class Početna extends javax.swing.JFrame {
             }
         });
 
+        btnSmjerovi.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         btnSmjerovi.setText("Smjerovi");
         btnSmjerovi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -51,6 +53,7 @@ public class Početna extends javax.swing.JFrame {
             }
         });
 
+        btnGodine.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         btnGodine.setText("Godine");
         btnGodine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,6 +61,7 @@ public class Početna extends javax.swing.JFrame {
             }
         });
 
+        btnPredmeti.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         btnPredmeti.setText("Predmeti");
         btnPredmeti.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,6 +71,14 @@ public class Početna extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel1.setText("DOBRO DOŠAO U RASPORED");
+
+        btnProfesori.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        btnProfesori.setText("Profesori");
+        btnProfesori.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProfesoriActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,12 +91,15 @@ public class Početna extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btnSmjerovi, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnGodine, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnSmjerovi, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnGodine, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnProfesori, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnPredmeti, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,11 +111,13 @@ public class Početna extends javax.swing.JFrame {
                         .addComponent(btnSmjerovi, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(58, 58, 58)
-                        .addComponent(btnGodine, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnGodine, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnProfesori, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(82, 82, 82)
                         .addComponent(btnPredmeti, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleParent(this);
@@ -137,10 +154,16 @@ public class Početna extends javax.swing.JFrame {
         this.setLocation(x, y);
     }//GEN-LAST:event_formWindowActivated
 
+    private void btnProfesoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfesoriActionPerformed
+
+        new Profesori().setVisible(true);
+    }//GEN-LAST:event_btnProfesoriActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGodine;
     private javax.swing.JButton btnPredmeti;
+    private javax.swing.JButton btnProfesori;
     private javax.swing.JButton btnSmjerovi;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

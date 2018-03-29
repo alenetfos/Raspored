@@ -61,12 +61,5 @@ public class Smjer implements Serializable {
     public String toString() {
        return getNaziv();
     }
-    
 
-
-
-    
-    
-    
-    
 }

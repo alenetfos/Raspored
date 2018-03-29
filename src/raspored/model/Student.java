@@ -6,6 +6,7 @@
 package raspored.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Entity;
@@ -18,43 +19,35 @@ import javax.persistence.Table;
  *
  * @author FeritApostol
  */
-
 @Entity
 @Table
-public class Profesor implements Serializable {
-    
+public class Student implements Serializable {
     @Id
     @GeneratedValue
-    private int id_profesor;
-    private int oib;
+    private int id_student;
+    
+    private String index;
     private String ime;
     private String prezime;
+    private BigDecimal broj_dolaznosti;
     
-    @ManyToMany(mappedBy = "profesori")
-    private Set<Predmet> predmeti = new HashSet<>();    
+    @ManyToMany(mappedBy = "studenti")
+    private Set<Predmet> predmeti = new HashSet<>(); 
 
-    public Set<Predmet> getPredmeti() {
-        return predmeti;
+    public int getId_student() {
+        return id_student;
     }
 
-    public void setPredmeti(Set<Predmet> predmeti) {
-        this.predmeti = predmeti;
+    public void setId_student(int id_student) {
+        this.id_student = id_student;
     }
 
-    public int getId_profesor() {
-        return id_profesor;
+    public String getIndex() {
+        return index;
     }
 
-    public void setId_profesor(int id_profesor) {
-        this.id_profesor = id_profesor;
-    }
-
-    public int getOib() {
-        return oib;
-    }
-
-    public void setOib(int oib) {
-        this.oib = oib;
+    public void setIndex(String index) {
+        this.index = index;
     }
 
     public String getIme() {
@@ -73,9 +66,25 @@ public class Profesor implements Serializable {
         this.prezime = prezime;
     }
 
+    public Set<Predmet> getPredmeti() {
+        return predmeti;
+    }
+
+    public void setPredmeti(Set<Predmet> predmeti) {
+        this.predmeti = predmeti;
+    }
+
+    public BigDecimal getBroj_dolaznosti() {
+        return broj_dolaznosti;
+    }
+
+    public void setBroj_dolaznosti(BigDecimal broj_dolaznosti) {
+        this.broj_dolaznosti = broj_dolaznosti;
+    }
+
     @Override
     public String toString() {
        return getIme();
     }
-  
+ 
 }

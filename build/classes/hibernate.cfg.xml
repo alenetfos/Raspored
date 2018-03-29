@@ -27,7 +27,7 @@
     create-drop: drop the schema at the end of the session. 
     1. puta create, poslije update
     -->
-    <property name="hbm2ddl.auto">update</property>
+    <property name="hbm2ddl.auto">create</property>
   
     <!-- JDBC connection pool (use the built-in) -->
     <property name="connection.pool_size">1</property>
@@ -38,6 +38,7 @@
     <mapping class="raspored.model.Godina" /> 
     <mapping class="raspored.model.Predmet" /> 
     <mapping class="raspored.model.Profesor" /> 
+    <mapping class="raspored.model.Student" /> 
     
     
     

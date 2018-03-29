@@ -42,6 +42,16 @@ public class Predmet implements Serializable {
         inverseJoinColumns = { @JoinColumn(name = "id_profesor") }
     )
     Set<Profesor> profesori = new HashSet<>();
+    
+    @ManyToMany(cascade = { CascadeType.ALL }) 
+    @JoinTable(
+        name = "dolaznost", 
+        joinColumns = { @JoinColumn(name = "id_predmet") }, 
+        inverseJoinColumns = { @JoinColumn(name = "id_student") }
+    )
+    Set<Student> studenti = new HashSet<>();
+    
+    
 
     public Set<Profesor> getProfesori() {
         return profesori;
@@ -50,9 +60,14 @@ public class Predmet implements Serializable {
     public void setProfesori(Set<Profesor> profesori) {
         this.profesori = profesori;
     }
-    
-    
-    
+
+    public Set<Student> getStudenti() {
+        return studenti;
+    }
+
+    public void setStudenti(Set<Student> studenti) {
+        this.studenti = studenti;
+    }
 
     public int getId_predmet() {
         return id_predmet;

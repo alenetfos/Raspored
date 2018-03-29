@@ -17,6 +17,7 @@ import javax.swing.border.Border;
 import raspored.controller.Obrada;
 import raspored.model.Profesor;
 import raspored.pomocno.HibernateUtil;
+import raspored.pomocno.ProfesorRenderer;
 
 /**
  *
@@ -33,11 +34,15 @@ public class Profesori extends javax.swing.JFrame {
         
         obrada = new Obrada<>();
                 
+        lista.setCellRenderer(new ProfesorRenderer());
+        
         ucitajPodatke();
     }
 
     private Profesor napuniObjekt(Profesor p) {
         p.setOib(Integer.parseInt(txtOib.getText()));
+        p.setIme(txtIme.getText());
+        p.setPrezime(txtPrezime.getText());
         return p;
     }
     
