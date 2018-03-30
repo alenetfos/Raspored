@@ -6,12 +6,10 @@
 package raspored.model;
 
 import java.io.Serializable;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import org.hibernate.annotations.Type;
 
 /**
  *
@@ -24,13 +22,9 @@ public class Smjer implements Serializable {
     @Id
     @GeneratedValue
     private int idSmjer;
-    
-    @Column(name="naziv")
-    @Type(type="text")
+
     private String naziv;
     
-    @Column(name="opis")
-    @Type(type="text")
     private String opis;
 
     public int getIdSmjer() {

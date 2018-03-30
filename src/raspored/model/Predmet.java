@@ -35,20 +35,10 @@ public class Predmet implements Serializable {
     private String naziv;
     private BigDecimal brojSati;
     
-    @ManyToMany(cascade = { CascadeType.ALL })
-    @JoinTable(
-        name = "predaje", 
-        joinColumns = { @JoinColumn(name = "id_predmet") }, 
-        inverseJoinColumns = { @JoinColumn(name = "id_profesor") }
-    )
+    @ManyToMany
     private List<Profesor> profesori=new ArrayList<>();
     
-    @ManyToMany(cascade = { CascadeType.ALL })
-    @JoinTable(
-        name = "dolaznost", 
-        joinColumns = { @JoinColumn(name = "id_predmet") }, 
-        inverseJoinColumns = { @JoinColumn(name = "id_student") }
-    )
+    @ManyToMany
     private List<Student> studenti=new ArrayList<>();
 
     public int getIdPredmet() {

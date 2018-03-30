@@ -27,6 +27,7 @@ public class Godina implements Serializable {
     
     @ManyToOne
     private Smjer smjer;
+    
     private String brojGodine;
 
     public Smjer getSmjer() {
