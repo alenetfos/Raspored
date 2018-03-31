@@ -5,6 +5,9 @@
  */
 package raspored.view;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 /**
  *
  * @author FeritApostol
@@ -34,7 +37,13 @@ public class Izbornik extends javax.swing.JFrame {
         btnProfesori = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
+        btnSmjerovi.setBackground(new java.awt.Color(51, 255, 255));
         btnSmjerovi.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         btnSmjerovi.setText("Smjerovi");
         btnSmjerovi.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +141,20 @@ public class Izbornik extends javax.swing.JFrame {
 
         new Profesori().setVisible(true);
     }//GEN-LAST:event_btnProfesoriActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+
+        // Determine the new location of the window
+        int w = this.getSize().width;
+        int h = this.getSize().height;
+        int x = (dim.width-w)/2;
+        int y = (dim.height-h)/2;
+
+        // Move the window
+        this.setLocation(x, y);
+    }//GEN-LAST:event_formWindowActivated
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGodine;
