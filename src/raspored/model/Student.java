@@ -26,14 +26,26 @@ public class Student implements Serializable {
     @Id
     @GeneratedValue
     private int idStudent;
-    private String index;
+    private String brojIndexa; //ime kolone je bilo krivo
     private String ime;
     private String prezime;
     private BigDecimal brojDolaznosti;
     
+    
+     // prvo create bez ovoga
     @ManyToMany(mappedBy = "studenti")
     private List<Predmet> predmeti=new ArrayList<>(); 
+    
+      public List<Predmet> getPredmeti() {
+        return predmeti;
+    }
 
+    public void setPredmeti(List<Predmet> predmeti) {
+        this.predmeti = predmeti;
+    }
+    
+        // nakon toga update pa osloboditi gornje
+    
     public int getIdStudent() {
         return idStudent;
     }
@@ -50,12 +62,12 @@ public class Student implements Serializable {
         this.brojDolaznosti = brojDolaznosti;
     }
 
-    public String getIndex() {
-        return index;
+    public String getBrojIndexa() {
+        return brojIndexa;
     }
 
-    public void setIndex(String index) {
-        this.index = index;
+    public void setBrojIndexa(String brojIndexa) {
+        this.brojIndexa = brojIndexa;
     }
 
     public String getIme() {
@@ -74,13 +86,8 @@ public class Student implements Serializable {
         this.prezime = prezime;
     }
 
-    public List<Predmet> getPredmeti() {
-        return predmeti;
-    }
-
-    public void setPredmeti(List<Predmet> predmeti) {
-        this.predmeti = predmeti;
-    }
+  
+    
 
     @Override
     public String toString() {
