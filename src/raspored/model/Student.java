@@ -29,7 +29,7 @@ public class Student implements Serializable {
     private String brojIndexa; //ime kolone je bilo krivo
     private String ime;
     private String prezime;
-    private BigDecimal brojDolaznosti;
+    private Integer brojDolaznosti;
     
     
      // prvo create bez ovoga
@@ -54,11 +54,11 @@ public class Student implements Serializable {
         this.idStudent = idStudent;
     }
 
-    public BigDecimal getBrojDolaznosti() {
+    public Integer getBrojDolaznosti() {
         return brojDolaznosti;
     }
 
-    public void setBrojDolaznosti(BigDecimal brojDolaznosti) {
+    public void setBrojDolaznosti(Integer brojDolaznosti) {
         this.brojDolaznosti = brojDolaznosti;
     }
 

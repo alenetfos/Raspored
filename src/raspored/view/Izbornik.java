@@ -5,9 +5,6 @@
  */
 package raspored.view;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
-
 /**
  *
  * @author FeritApostol
@@ -30,25 +27,20 @@ public class Izbornik extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnSmjerovi = new javax.swing.JButton();
+        btnStudenti = new javax.swing.JButton();
         btnGodine = new javax.swing.JButton();
         btnPredmeti = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnProfesori = new javax.swing.JButton();
+        btnSmjerovi = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
-        });
 
-        btnSmjerovi.setBackground(new java.awt.Color(51, 255, 255));
-        btnSmjerovi.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        btnSmjerovi.setText("Smjerovi");
-        btnSmjerovi.addActionListener(new java.awt.event.ActionListener() {
+        btnStudenti.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        btnStudenti.setText("Studenti");
+        btnStudenti.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSmjeroviActionPerformed(evt);
+                btnStudentiActionPerformed(evt);
             }
         });
 
@@ -79,6 +71,14 @@ public class Izbornik extends javax.swing.JFrame {
             }
         });
 
+        btnSmjerovi.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        btnSmjerovi.setText("Smjerovi");
+        btnSmjerovi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSmjeroviActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,46 +86,45 @@ public class Izbornik extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnSmjerovi, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnGodine, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnPredmeti, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(80, 80, 80)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnSmjerovi, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnGodine, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnProfesori, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnProfesori, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnPredmeti, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnStudenti, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(btnSmjerovi, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(btnGodine, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnProfesori, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(btnPredmeti, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSmjerovi, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGodine, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPredmeti, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnProfesori, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnStudenti, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSmjeroviActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSmjeroviActionPerformed
+    private void btnStudentiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentiActionPerformed
 
-        new Smjerovi().setVisible(true);
-    }//GEN-LAST:event_btnSmjeroviActionPerformed
+        new Studenti().setVisible(true);
+    }//GEN-LAST:event_btnStudentiActionPerformed
 
     private void btnGodineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGodineActionPerformed
 
@@ -142,25 +141,16 @@ public class Izbornik extends javax.swing.JFrame {
         new Profesori().setVisible(true);
     }//GEN-LAST:event_btnProfesoriActionPerformed
 
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-
-        // Determine the new location of the window
-        int w = this.getSize().width;
-        int h = this.getSize().height;
-        int x = (dim.width-w)/2;
-        int y = (dim.height-h)/2;
-
-        // Move the window
-        this.setLocation(x, y);
-    }//GEN-LAST:event_formWindowActivated
+    private void btnSmjeroviActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSmjeroviActionPerformed
+        new Smjerovi().setVisible(true);
+    }//GEN-LAST:event_btnSmjeroviActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGodine;
     private javax.swing.JButton btnPredmeti;
     private javax.swing.JButton btnProfesori;
     private javax.swing.JButton btnSmjerovi;
+    private javax.swing.JButton btnStudenti;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

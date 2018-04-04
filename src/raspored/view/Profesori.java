@@ -65,13 +65,13 @@ public class Profesori extends javax.swing.JFrame {
         polje.requestFocus();
     }
     
-     private void resetirajGreske() {
+    private void resetirajGreske() {
          txtOib.setBorder(obrub); 
          txtIme.setBorder(obrub);
          txtPrezime.setBorder(obrub);
     }
      
-      private boolean kontrola() {
+    private boolean kontrola() {
         if (txtOib.getText().trim().length() == 0) {
             oznaciGresku(txtOib);
             return false;
@@ -292,13 +292,14 @@ public class Profesori extends javax.swing.JFrame {
 
     private void btnIzbrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIzbrisiActionPerformed
 
-        Profesor p = lista.getSelectedValue();
-        if (p == null) {
-            JOptionPane.showMessageDialog(getRootPane(), "Prvo odaberite stavku");
+        resetirajGreske();
+        if (!kontrola()) {
             return;
         }
         
-        obrada.delete(p);
+        Profesor p = new Profesor();
+        p = napuniObjekt(p);
+        obrada.save(p);
         ucitajPodatke();
     }//GEN-LAST:event_btnIzbrisiActionPerformed
 

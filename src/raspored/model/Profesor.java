@@ -30,16 +30,20 @@ public class Profesor implements Serializable {
     private int oib;
     private String prezime;
     
-    @ManyToMany(mappedBy = "profesori")
-    private List<Predmet> predmeti=new ArrayList<>(); 
+    // prvo create bez ovoga
     
-    public List<Predmet> getPredmeti() {
-        return predmeti;
-    }
-
-    public void setPredmeti(List<Predmet> predmeti) {
-        this.predmeti = predmeti;
-    }
+//    @ManyToMany(mappedBy = "profesori")
+//    private List<Predmet> predmeti=new ArrayList<>(); 
+//    
+//    public List<Predmet> getPredmeti() {
+//        return predmeti;
+//    }
+//
+//    public void setPredmeti(List<Predmet> predmeti) {
+//        this.predmeti = predmeti;
+//    }
+    
+    // nakon toga update pa osloboditi gornje
 
     public int getIdProfesor() {
         return idProfesor;
