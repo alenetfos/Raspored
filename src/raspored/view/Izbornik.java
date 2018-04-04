@@ -5,6 +5,9 @@
  */
 package raspored.view;
 
+import java.awt.Color;
+import java.awt.Graphics;
+
 /**
  *
  * @author FeritApostol
@@ -30,13 +33,21 @@ public class Izbornik extends javax.swing.JFrame {
         btnStudenti = new javax.swing.JButton();
         btnGodine = new javax.swing.JButton();
         btnPredmeti = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         btnProfesori = new javax.swing.JButton();
         btnSmjerovi = new javax.swing.JButton();
+        btnDolaznost = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
+        btnStudenti.setBackground(new java.awt.Color(0, 0, 0));
         btnStudenti.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        btnStudenti.setForeground(new java.awt.Color(255, 255, 255));
         btnStudenti.setText("Studenti");
         btnStudenti.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -44,7 +55,9 @@ public class Izbornik extends javax.swing.JFrame {
             }
         });
 
+        btnGodine.setBackground(new java.awt.Color(0, 0, 0));
         btnGodine.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        btnGodine.setForeground(new java.awt.Color(255, 255, 255));
         btnGodine.setText("Godine");
         btnGodine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,7 +65,9 @@ public class Izbornik extends javax.swing.JFrame {
             }
         });
 
+        btnPredmeti.setBackground(new java.awt.Color(0, 0, 0));
         btnPredmeti.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        btnPredmeti.setForeground(new java.awt.Color(255, 255, 255));
         btnPredmeti.setText("Predmeti");
         btnPredmeti.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,10 +75,9 @@ public class Izbornik extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jLabel1.setText("DOBRO DOŠAO U RASPORED");
-
+        btnProfesori.setBackground(new java.awt.Color(0, 0, 0));
         btnProfesori.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        btnProfesori.setForeground(new java.awt.Color(255, 255, 255));
         btnProfesori.setText("Profesori");
         btnProfesori.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,13 +85,28 @@ public class Izbornik extends javax.swing.JFrame {
             }
         });
 
+        btnSmjerovi.setBackground(new java.awt.Color(0, 0, 0));
         btnSmjerovi.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        btnSmjerovi.setForeground(new java.awt.Color(255, 255, 255));
         btnSmjerovi.setText("Smjerovi");
+        btnSmjerovi.setToolTipText("");
         btnSmjerovi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSmjeroviActionPerformed(evt);
             }
         });
+
+        btnDolaznost.setBackground(new java.awt.Color(0, 0, 0));
+        btnDolaznost.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        btnDolaznost.setForeground(new java.awt.Color(255, 255, 255));
+        btnDolaznost.setText("Dolaznost");
+        btnDolaznost.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDolaznostActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/raspored/view/logo.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,38 +116,44 @@ public class Izbornik extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
+                        .addComponent(btnProfesori, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnStudenti, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDolaznost, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(btnSmjerovi, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnGodine, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnPredmeti, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnProfesori, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnStudenti, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(91, 91, 91)
+                        .addComponent(jLabel3)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(38, 38, 38)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSmjerovi, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnGodine, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPredmeti, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnProfesori, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnStudenti, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnProfesori, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnStudenti, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnDolaznost, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnStudentiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentiActionPerformed
@@ -145,12 +180,23 @@ public class Izbornik extends javax.swing.JFrame {
         new Smjerovi().setVisible(true);
     }//GEN-LAST:event_btnSmjeroviActionPerformed
 
+    private void btnDolaznostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDolaznostActionPerformed
+
+        new Dolaznost().setVisible(true);
+    }//GEN-LAST:event_btnDolaznostActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+
+        
+    }//GEN-LAST:event_formWindowActivated
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDolaznost;
     private javax.swing.JButton btnGodine;
     private javax.swing.JButton btnPredmeti;
     private javax.swing.JButton btnProfesori;
     private javax.swing.JButton btnSmjerovi;
     private javax.swing.JButton btnStudenti;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
