@@ -6,7 +6,6 @@
 package raspored.view;
 
 import java.awt.Color;
-import java.math.BigDecimal;
 import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
@@ -26,7 +25,6 @@ public class Studenti extends javax.swing.JFrame {
     
     
     private Obrada<Student> obrada;
-    private Student odabraniStudent;
     private Border obrub;
 
     /**
@@ -46,7 +44,6 @@ public class Studenti extends javax.swing.JFrame {
         s.setIme(txtIme.getText());
         s.setPrezime(txtPrezime.getText());
         s.setBrojIndexa(txtIndeks.getText());
-        s.setBrojDolaznosti(Integer.parseInt((String)cmbSati.getSelectedItem()));
         return s;
     }
     
@@ -88,10 +85,7 @@ public class Studenti extends javax.swing.JFrame {
             oznaciGresku(txtPrezime);
             return false;
         }
-        if (cmbSati.getSelectedItem()== null){
-            JOptionPane.showMessageDialog(getRootPane(), "Nisi odabrao");
-            return false;
-        }
+       
         return true;
     } 
 
@@ -117,10 +111,8 @@ public class Studenti extends javax.swing.JFrame {
         btnObrisi = new javax.swing.JButton();
         btnPromjeni = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
-        cmbSati = new javax.swing.JComboBox<>();
-        btnDodajBrojSati = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lista.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
@@ -144,6 +136,8 @@ public class Studenti extends javax.swing.JFrame {
 
         jLabel4.setText("Index");
 
+        btnDodaj.setBackground(new java.awt.Color(0, 0, 0));
+        btnDodaj.setForeground(new java.awt.Color(51, 255, 0));
         btnDodaj.setText("Dodaj");
         btnDodaj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,6 +145,8 @@ public class Studenti extends javax.swing.JFrame {
             }
         });
 
+        btnObrisi.setBackground(new java.awt.Color(0, 0, 0));
+        btnObrisi.setForeground(new java.awt.Color(255, 0, 0));
         btnObrisi.setText("Obriši");
         btnObrisi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,6 +154,8 @@ public class Studenti extends javax.swing.JFrame {
             }
         });
 
+        btnPromjeni.setBackground(new java.awt.Color(0, 0, 0));
+        btnPromjeni.setForeground(new java.awt.Color(0, 0, 255));
         btnPromjeni.setText("Promjeni");
         btnPromjeni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,24 +163,12 @@ public class Studenti extends javax.swing.JFrame {
             }
         });
 
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnBack.setForeground(new java.awt.Color(255, 255, 0));
         btnBack.setText("<Povratak>");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
-            }
-        });
-
-        cmbSati.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "4" }));
-        cmbSati.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbSatiActionPerformed(evt);
-            }
-        });
-
-        btnDodajBrojSati.setText("Broj sati");
-        btnDodajBrojSati.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDodajBrojSatiActionPerformed(evt);
             }
         });
 
@@ -198,26 +184,25 @@ public class Studenti extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtIndeks, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIme)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnDodaj, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnObrisi, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnPromjeni))
-                            .addComponent(btnBack)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtIme, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPrezime, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3))
-                                .addGap(55, 55, 55)
-                                .addComponent(cmbSati, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                                .addComponent(btnDodajBrojSati)))))
-                .addGap(18, 18, 18))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnBack)
+                                    .addComponent(jLabel3)
+                                    .addComponent(txtPrezime)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(txtIndeks, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                .addComponent(btnDodaj, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(btnObrisi, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnPromjeni)))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,20 +214,12 @@ public class Studenti extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtIme, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtPrezime, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(cmbSati)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(btnDodajBrojSati)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtIme, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPrezime, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -258,6 +235,7 @@ public class Studenti extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtImeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtImeActionPerformed
@@ -323,21 +301,8 @@ public class Studenti extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void cmbSatiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSatiActionPerformed
-
-        
-    }//GEN-LAST:event_cmbSatiActionPerformed
-
-    private void btnDodajBrojSatiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajBrojSatiActionPerformed
-        
-    }//GEN-LAST:event_btnDodajBrojSatiActionPerformed
-
     private void listaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaValueChanged
         if(evt.getValueIsAdjusting()){
-            return;
-        }
-        odabraniStudent = lista.getSelectedValue();
-        if(odabraniStudent == null){
             return;
         }
         
@@ -348,10 +313,8 @@ public class Studenti extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDodaj;
-    private javax.swing.JButton btnDodajBrojSati;
     private javax.swing.JButton btnObrisi;
     private javax.swing.JButton btnPromjeni;
-    private javax.swing.JComboBox<String> cmbSati;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -78,6 +78,8 @@ public class Predmeti extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         jLabel1.setText("PREDMETI");
 
+        btnDodaj.setBackground(new java.awt.Color(0, 0, 0));
+        btnDodaj.setForeground(new java.awt.Color(0, 255, 0));
         btnDodaj.setText("Dodaj");
         btnDodaj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,6 +87,8 @@ public class Predmeti extends javax.swing.JFrame {
             }
         });
 
+        btnObrisi.setBackground(new java.awt.Color(0, 0, 0));
+        btnObrisi.setForeground(new java.awt.Color(255, 0, 0));
         btnObrisi.setText("Obriši");
         btnObrisi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +96,8 @@ public class Predmeti extends javax.swing.JFrame {
             }
         });
 
+        btnPromjeni.setBackground(new java.awt.Color(0, 0, 0));
+        btnPromjeni.setForeground(new java.awt.Color(0, 0, 255));
         btnPromjeni.setText("Promjeni");
         btnPromjeni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,6 +109,8 @@ public class Predmeti extends javax.swing.JFrame {
 
         jLabel3.setText("Broj sati");
 
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnBack.setForeground(new java.awt.Color(255, 255, 0));
         btnBack.setText("<Povratak>");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,6 +177,7 @@ public class Predmeti extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajActionPerformed
@@ -283,6 +292,13 @@ public class Predmeti extends javax.swing.JFrame {
 
         if (txtBrojSati.getText().trim().length() == 0) {
             oznaciGresku(txtBrojSati);
+            return false;
+        }
+        try {
+            Integer.parseInt(txtBrojSati.getText());
+        } catch (Exception e) {
+            oznaciGresku(txtBrojSati);
+            JOptionPane.showMessageDialog(getRootPane(), "Unesite broj!");
             return false;
         }
         return true;

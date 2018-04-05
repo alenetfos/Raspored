@@ -82,6 +82,8 @@ public class Smjerovi extends javax.swing.JFrame {
         jScrollPane1.setViewportView(lista);
         lista.getAccessibleContext().setAccessibleName("");
 
+        btnDodajSmjer.setBackground(new java.awt.Color(0, 0, 0));
+        btnDodajSmjer.setForeground(new java.awt.Color(51, 255, 51));
         btnDodajSmjer.setText("Dodaj");
         btnDodajSmjer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +95,8 @@ public class Smjerovi extends javax.swing.JFrame {
         jLabel2.setText("SMJEROVI");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
+        btnObrisiSmjer.setBackground(new java.awt.Color(0, 0, 0));
+        btnObrisiSmjer.setForeground(new java.awt.Color(255, 0, 0));
         btnObrisiSmjer.setText("Obriši");
         btnObrisiSmjer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,6 +104,8 @@ public class Smjerovi extends javax.swing.JFrame {
             }
         });
 
+        btnPromjeniSmjer.setBackground(new java.awt.Color(0, 0, 0));
+        btnPromjeniSmjer.setForeground(new java.awt.Color(0, 0, 255));
         btnPromjeniSmjer.setText("Promjeni");
         btnPromjeniSmjer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,6 +117,8 @@ public class Smjerovi extends javax.swing.JFrame {
 
         jLabel4.setText("Naziv");
 
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnBack.setForeground(new java.awt.Color(255, 255, 0));
         btnBack.setText("<Povratak>");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,26 +142,24 @@ public class Smjerovi extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnDodajSmjer, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
                                 .addComponent(btnPromjeniSmjer)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(166, 166, 166)
-                                        .addComponent(jLabel1))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnDodajSmjer, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnObrisiSmjer, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnBack))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnObrisiSmjer, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnBack))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(239, 239, 239)
+                                        .addComponent(jLabel1))
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(txtDodajOpis, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(txtDodajNaziv, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 7, Short.MAX_VALUE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -188,6 +194,7 @@ public class Smjerovi extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDodajSmjerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajSmjerActionPerformed

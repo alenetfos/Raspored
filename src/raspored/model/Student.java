@@ -29,7 +29,7 @@ public class Student implements Serializable {
     private String brojIndexa; //ime kolone je bilo krivo
     private String ime;
     private String prezime;
-    private Integer brojDolaznosti;
+    private int brojDolaznosti;
     
     
      // prvo create bez ovoga
@@ -54,11 +54,11 @@ public class Student implements Serializable {
         this.idStudent = idStudent;
     }
 
-    public Integer getBrojDolaznosti() {
+    public int getBrojDolaznosti() {
         return brojDolaznosti;
     }
 
-    public void setBrojDolaznosti(Integer brojDolaznosti) {
+    public void setBrojDolaznosti(int brojDolaznosti) {
         this.brojDolaznosti = brojDolaznosti;
     }
 
@@ -91,7 +91,7 @@ public class Student implements Serializable {
 
     @Override
     public String toString() {
-       return getIme();
+       return getIme()+" "+ getBrojDolaznosti();
     }
  
 }

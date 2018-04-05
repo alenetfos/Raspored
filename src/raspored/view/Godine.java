@@ -77,6 +77,8 @@ public class Godine extends javax.swing.JFrame {
 
         jLabel2.setText("Unesi Godinu");
 
+        btnDodaj.setBackground(new java.awt.Color(0, 0, 0));
+        btnDodaj.setForeground(new java.awt.Color(51, 255, 51));
         btnDodaj.setText("Dodaj");
         btnDodaj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,6 +86,8 @@ public class Godine extends javax.swing.JFrame {
             }
         });
 
+        btnPromjeni.setBackground(new java.awt.Color(0, 0, 0));
+        btnPromjeni.setForeground(new java.awt.Color(0, 0, 255));
         btnPromjeni.setText("Promjeni");
         btnPromjeni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +95,8 @@ public class Godine extends javax.swing.JFrame {
             }
         });
 
+        btnObriši.setBackground(new java.awt.Color(0, 0, 0));
+        btnObriši.setForeground(new java.awt.Color(255, 0, 0));
         btnObriši.setText("Obriši");
         btnObriši.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +104,8 @@ public class Godine extends javax.swing.JFrame {
             }
         });
 
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnBack.setForeground(new java.awt.Color(255, 255, 0));
         btnBack.setText("<Povratak>");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,6 +158,7 @@ public class Godine extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajActionPerformed
